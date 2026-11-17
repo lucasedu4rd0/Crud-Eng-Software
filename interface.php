@@ -45,7 +45,7 @@ $lista_livros = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td>R$ <?php echo number_format($livro['preco'], 2, ',', '.'); ?></td>
                         <td>
                             <a href="update_interface.php?id=<?php echo $livro['id']; ?>">Editar</a> | 
-                            <a href="excluir.php?id=<?php echo $livro['id']; ?>" onclick="return confirm('Tem certeza que deseja remover este livro?');">Remover</a>
+                           <a href="delete.php?id=<?php echo $livro['id']; ?>" onclick="return confirm('Tem certeza que deseja remover este livro?');">Remover</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
