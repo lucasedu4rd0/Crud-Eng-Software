@@ -86,7 +86,7 @@ tr:nth-child(even) {
 }
 
 .button.edit:hover {
-    background-color: #e02d00;
+    background-color: #a2e465;
 }
 
 .button.delete {
@@ -99,7 +99,7 @@ tr:nth-child(even) {
 
 form {
     margin-top: 20px;
-    background-color: #d61313;
+    background-color: #a2e465;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
