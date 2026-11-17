@@ -18,6 +18,7 @@ $lista_livros = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <h1>Loja de Livros</h1>
 
         <nav>
+
             <a href="subirlivro.php">Cadastrar Livro</a>
         </nav>
 
@@ -43,7 +44,7 @@ $lista_livros = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo $livro['autor']; ?></td>
                         <td>R$ <?php echo number_format($livro['preco'], 2, ',', '.'); ?></td>
                         <td>
-                            <a href="editar.php?id=<?php echo $livro['id']; ?>">Editar</a> | 
+                            <a href="update_interface.php?id=<?php echo $livro['id']; ?>">Editar</a> | 
                             <a href="excluir.php?id=<?php echo $livro['id']; ?>" onclick="return confirm('Tem certeza que deseja remover este livro?');">Remover</a>
                         </td>
                     </tr>
