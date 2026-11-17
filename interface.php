@@ -18,25 +18,8 @@ $lista_livros = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <h1>Loja de Livros</h1>
 
         <nav>
-            <a href="index.php">Catálogo de Livros</a>
             <a href="subirlivro.php">Cadastrar Livro</a>
         </nav>
-        <hr>
-
-        <h2>Cadastrar Novo Livro</h2>
-        
-        <form action="insert.php" method="POST">
-            <label>Título do Livro:</label>
-            <input type="text" name="titulo" required>
-
-            <label>Autor:</label>
-            <input type="text" name="autor" required>
-
-            <label>Preço:</label>
-            <input type="number" name="preco" step="0.01" required>
-
-            <button type="submit">Salvar Livro</button>
-        </form>
 
         <hr>
 
@@ -49,6 +32,7 @@ $lista_livros = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <th>Título</th>
                     <th>Autor</th>
                     <th>Preço</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,7 +41,11 @@ $lista_livros = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo $livro['id']; ?></td>
                         <td><?php echo $livro['titulo']; ?></td>
                         <td><?php echo $livro['autor']; ?></td>
-                        <td>R$ <?php echo $livro['preco']; ?></td>
+                        <td>R$ <?php echo number_format($livro['preco'], 2, ',', '.'); ?></td>
+                        <td>
+                            <a href="editar.php?id=<?php echo $livro['id']; ?>">Editar</a> | 
+                            <a href="excluir.php?id=<?php echo $livro['id']; ?>" onclick="return confirm('Tem certeza que deseja remover este livro?');">Remover</a>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
